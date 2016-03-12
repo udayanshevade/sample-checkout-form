@@ -9,15 +9,22 @@
 .form-division {
   @include display(flex);
   @include flex-direction(column);
-  @include justify-content(space-between);
+  @include justify-content(space-around);
   width: 100%;
+  opacity: 1;
   border-left: 1px solid rgba(0,0,0,0.1);
+  @include transition(opacity 0.1s ease-in-out);
+}
+
+.hidden {
+  display: none;
 }
 
 .form-section {
-  @include display(block);
+  @include display(inline-block);
   text-align: center;
   padding: 0 1rem 1rem;
+  max-width: 400px;
 }
 
 .form-entry {
@@ -29,6 +36,7 @@
 }
 
 .form-section__header {
+  display: block;
   text-align: left;
 }
 
@@ -51,10 +59,16 @@
   border-bottom: 1px solid rgba(0,0,0,0.2);
   font-size: 1.85rem;
   line-height: 3rem;
-  text-align: right;
+  text-align: left;
 
   @include placeholder {
     color: rgba(0,0,0, 0.2);
+  }
+
+  &[required] ~ .form-entry__label::before {
+    content: " *";
+    @include position(absolute, null null null -1rem);
+    @include display(block);
   }
 
   &:focus ~ .form-entry__label::after {
@@ -65,9 +79,10 @@
 
 .form-entry__label {
   @include position(relative);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   text-transform: uppercase;
   text-align: left;
+  color: #777;
 
   &::after {
     content: "";
@@ -76,7 +91,7 @@
     width: 100%;
     border-top: 1px solid #000;
     @include transform(scaleX(0));
-    @include transition(transform 0.20s ease-in);
+    @include transition(transform 0.15s ease-in);
   }
 }
 
@@ -90,5 +105,29 @@
 @media (min-width: $breakpoint-sm) {
   .form-division {
     @include flex-direction(row);
+  }
+}
+
+/* Order Table */
+
+td, tr {
+  font-size: 1.5rem;
+}
+
+td {
+  padding: 1rem;
+}
+
+.products-col {
+  width: 200px;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.table__total {
+  td {
+    text-align: right;
   }
 }

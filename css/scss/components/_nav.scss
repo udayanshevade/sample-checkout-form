@@ -2,6 +2,7 @@
   @include display(flex);
   @include flex-direction(row);
   @include justify-content(space-around);
+  text-align: left;
   max-width: 900px;
   padding-left: 0;
 }
@@ -19,6 +20,7 @@
     float: left;
     padding: 0 1rem;
     margin: 0 2rem;
+    max-width: 150px;
   }
 
   .sections-nav__li {

@@ -1,0 +1,24 @@
+// reset placeholders
+%no-margin {
+  margin: 0;
+}
+
+html {
+  @extend %no-margin;
+  font-family: "Open Sans", sans-serif;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  @extend %no-margin;
+}
+
+* {
+  box-sizing: inherit;
+
+  &:before, &:after {
+    @extend *;
+  }
+
+}

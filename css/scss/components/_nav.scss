@@ -1,0 +1,27 @@
+.sections-nav__list {
+  @include display(flex);
+  @include flex-direction(row);
+  @include justify-content(space-around);
+  max-width: 900px;
+  padding-left: 0;
+}
+
+.sections-nav__li {
+  font-size: 1.85rem;
+  font-variant: small-caps;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+@media (min-width: $breakpoint-lg) {
+  .sections-nav__list {
+    @include flex-direction(column);
+    float: left;
+    padding: 0 1rem;
+    margin: 0 2rem;
+  }
+
+  .sections-nav__li {
+    font-size: 2rem;
+  }
+}

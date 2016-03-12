@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout Form</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <header class="over-header">
+    <h1 class="company-name">company name</h1>
+  </header>
+  <main class="main__container">
+    <header class="main__header">
+      <nav class="sections-nav">
+        <ul class="sections-nav__list">
+          <li class="sections-nav__li">shipping</li>
+          <li class="sections-nav__li">payment</li>
+          <li class="sections-nav__li">confirm</li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Form here -->
+    <form class="form">
+      <section class="form-division">
+        <!-- Shipping -->
+        <section class="form-section shipping">
+          <header class="form-entry form-section__header">
+            <!-- Title -->
+            <h3 class="form-section__title">shipping address</h3>
+          </header>
+          <div class="form-entry">
+            <input class="form-entry__input" id="shipping-name" type="text" autocomplete="name" placeholder="The Muffin Man" required autofocus>
+            <label class="form-entry__label" for="shipping-name">Name</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="shipping-address-line1" type="text" autocomplete="address-line1" placeholder="42 Drury Ln" required>
+            <label class="form-entry__label" for="shipping-address-line1">Address Line 1</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="shipping-address-line2" autocomplete="address-line2" type="text">
+            <label class="form-entry__label" for="shipping-address-line2">Address Line 2</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="shipping-city" type="text" placeholder="London" required>
+            <label class="form-entry__label" for="shipping-city">City</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="shipping-state" type="text" placeholder="Westminster" required>
+            <label class="form-entry__label" for="shipping-state">State/Province</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="shipping-postal-code" type="text" autocomplete="postal-code" placeholder="WC2" required>
+            <label class="form-entry__label" for="shipping-postal-code">Postal Code</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="shipping-country" type="text" autocomplete="country" placeholder="England" required>
+            <label class="form-entry__label" for="shipping-country">Country</label>
+          </div>
+        </section>
+        <!-- Billing -->
+        <section class="form-section billing">
+          <header class="form-entry form-section__header">
+            <!-- Title -->
+            <h3 class="form-section__title">billing address</h3>
+            <label class="same-address__label" for="same-address-checkbox">
+              <input class="form-entry__checkbox" id="same-address-checkbox" type="checkbox" checked>
+              same as shipping address
+            </label>
+          </header>
+          <div class="form-entry">
+            <input class="form-entry__input" id="billing-name" type="text" autocomplete="name" placeholder="The Muffin Man" required autofocus>
+            <label class="form-entry__label" for="billing-name">Name</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="billing-address-line1" type="text" autocomplete="address-line1" placeholder="42 Drury Ln" required>
+            <label class="form-entry__label" for="billing-address-line1">Address Line 1</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="billing-address-line2" autocomplete="address-line2" type="text">
+            <label class="form-entry__label" for="billing-address-line2">Address Line 2</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="billing-city" type="text" placeholder="London" required>
+            <label class="form-entry__label" for="billing-city">City</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="billing-state" type="text" placeholder="Westminster" required>
+            <label class="form-entry__label" for="billing-state">State/Province</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="billing-postal-code" type="text" autocomplete="postal-code" placeholder="WC2" required>
+            <label class="form-entry__label" for="billing-postal-code">Postal Code</label>
+          </div>
+          <div class="form-entry">
+            <input class="form-entry__input" id="billing-country" type="text" autocomplete="country" placeholder="England" required>
+            <label class="form-entry__label" for="billing-country">Country</label>
+          </div>
+        </section>
+      </section>
+      <section class="form-division">
+        <!-- Next section -->
+      </section>
+    </form>
+  </main>
+</body>
+</html>

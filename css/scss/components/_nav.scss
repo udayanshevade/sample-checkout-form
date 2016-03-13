@@ -1,29 +1,42 @@
 .sections-nav__list {
   @include display(flex);
   @include flex-direction(row);
-  @include justify-content(space-around);
+  @include justify-content(center);
+  @include position(relative, 2px null null null);
   text-align: left;
+  margin: 0;
   max-width: 900px;
+  width: 100%;
   padding-left: 0;
 }
 
 .sections-nav__li {
+  text-align: center;
   font-size: 1.85rem;
   font-variant: small-caps;
+  padding: 1rem;
   list-style-type: none;
   cursor: pointer;
+}
+
+.sections-nav__li--selected {
+  background-color: #fff;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.1);
 }
 
 @media (min-width: $breakpoint-lg) {
   .sections-nav__list {
     @include flex-direction(column);
     float: left;
-    padding: 0 1rem;
-    margin: 0 2rem;
+    margin: 0 1rem;
     max-width: 150px;
+    background-color: transparent;
+    box-shadow: none;
   }
 
   .sections-nav__li {
+    padding: 1rem 0;
     font-size: 2rem;
   }
+
 }

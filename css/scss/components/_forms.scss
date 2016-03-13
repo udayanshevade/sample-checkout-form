@@ -1,7 +1,7 @@
 .form {
   @include display(flex);
   @include flex-direction(column);
-  margin: 2rem auto 0 0;
+  padding: 2rem 0;
   width: 100%;
   max-width: 900px;
 }
@@ -23,8 +23,10 @@
 .form-section {
   @include display(inline-block);
   text-align: center;
-  padding: 0 1rem 1rem;
-  max-width: 400px;
+  padding: 1rem 3rem 2rem;
+  max-width: 380px;
+  background-color: #fff;
+  box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
 }
 
 .form-entry {
@@ -42,7 +44,7 @@
 
 .form-section__title {
   margin: 0;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   @include display(inline-block);
   font-size: 2rem;
   font-variant: small-caps;
@@ -56,13 +58,14 @@
   width: 100%;
   outline: 0;
   border: 0;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
   font-size: 1.85rem;
   line-height: 3rem;
   text-align: left;
 
   @include placeholder {
-    color: rgba(0,0,0, 0.2);
+    color: rgba(0,0,0, 0.3);
   }
 
   &[required] ~ .form-entry__label::before {

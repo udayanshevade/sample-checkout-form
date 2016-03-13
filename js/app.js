@@ -1,11 +1,13 @@
-var app = {};
-app = (function(win) {
+var app = (function(win) {
+  var app = {};
 
   var doc = win.document;
 
+  // Handles the input data
   app.Model = function() {
     var that = this;
 
+    // shipping address data
     that.shipping = {
       'shipping-name': '',
       'shipping-address-line1': '',
@@ -16,6 +18,7 @@ app = (function(win) {
       'shipping-country': ''
     };
 
+    // billing address data
     that.billing = {
       'billing-name': '',
       'billing-address-line1': '',
@@ -26,6 +29,7 @@ app = (function(win) {
       'billing-country': ''
     };
 
+    // clone shipping data object
     that.cloneShipping = function(prefix) {
       var splitName, key;
       var shipping =  app.model.shipping,
@@ -41,21 +45,25 @@ app = (function(win) {
 
   };
 
+  // controller, connecting form model and view
   app.Controller = function() {
 
     var that = this;
 
+    // initialize model and view
     that.init = function() {
       app.model = new app.Model(that);
       app.view = new app.View(that);
     };
 
+    // applies same address as shipping to billing
     that.applySameAddress = function() {
       app.view.getInfo(app.model.shipping);
       app.model.billing = app.model.cloneShipping('billing');
       app.view.setInfo(app.model.billing);
     };
 
+    // updates address inputs/data accordingly
     that.updateInput = function(e) {
       var el = e.srcElement;
       var id = el.id;
@@ -67,25 +75,29 @@ app = (function(win) {
       }
     };
 
+    // verifies form
     that.verifyForm = function() {
       var input,
       inputs = doc.getElementsByTagName('input');
       for (var i = 0; i < inputs.length; i++) {
         input = inputs[i];
         if (input.required && !input.value) {
-          input.setCustomValidity('Please complete this field.');
+          input.setCustomValidity('Please fill out this field.');
         }
       }
     };
 
+    // initialize controller
     that.init();
 
   };
 
+  // initialize view
   app.View = function(controller) {
 
     var that = this;
 
+    // initialize view components
     that.init = function() {
       that.initNav();
       that.initTabs();
@@ -95,6 +107,7 @@ app = (function(win) {
       that.initFormSubmit();
     };
 
+    // initialize navigation
     that.initNav = function() {
       that.navList = doc.getElementsByClassName('sections-nav__li');
       that.sectionNav = doc.getElementsByClassName('sections-nav__list')[0];
@@ -109,11 +122,13 @@ app = (function(win) {
       that.showActiveNav('ship');
     };
 
+    // initialize individual tabs
     that.initTabs = function() {
       that.tabList = doc.getElementsByClassName('form-division');
       that.showActiveTab('ship');
     };
 
+    // show only the active tab, hide the others
     that.showActiveTab = function(id) {
       var tab, tabId;
       var thisId = id + '-tab';
@@ -124,6 +139,7 @@ app = (function(win) {
       }
     };
 
+    // highlight the active nav element
     that.showActiveNav = function(id) {
       var nav, navId;
       var thisId = id + '-nav';
@@ -134,6 +150,7 @@ app = (function(win) {
       }
     };
 
+    // initialize 'same address' checkbox
     that.initAddressCheckbox = function() {
       that.addressCheckbox = doc.getElementById('same-address-checkbox');
       that.addressCheckbox.addEventListener('change', function(e) {
@@ -143,6 +160,7 @@ app = (function(win) {
       });
     };
 
+    // set info for an input data object
     that.setInfo = function(obj) {
       var detailEl;
       for (var detail in obj) {
@@ -151,6 +169,7 @@ app = (function(win) {
       }
     };
 
+    // get info for a set of input fields
     that.getInfo = function(obj) {
       var detailEl;
       for (var detail in obj) {
@@ -159,6 +178,7 @@ app = (function(win) {
       }
     };
 
+    // track changes to inputs
     that.watchAddress = function(type) {
       var section = doc.getElementById(type);
       var inputs = section.getElementsByClassName('form-entry__input');
@@ -169,15 +189,18 @@ app = (function(win) {
       }
     };
 
+    // submit form
     that.initFormSubmit = function() {
       var form = doc.getElementById('main-form');
       form.submit = controller.verifyForm;
     };
 
+    // init view components
     this.init();
 
   };
 
+  // init controller and app
   app.controller = new app.Controller();
 
 

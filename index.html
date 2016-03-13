@@ -17,12 +17,11 @@
         <ul class="sections-nav__list">
           <li class="sections-nav__li" id="ship-nav">shipping</li>
           <li class="sections-nav__li" id="bill-nav">payment</li>
-          <li class="sections-nav__li" id="confirm-nav">confirm</li>
         </ul>
       </nav>
     </header>
     <!-- Form here -->
-    <form class="form">
+    <form class="form" id="main-form">
       <section class="form-division" id="ship-tab">
         <!-- Shipping -->
         <section class="form-section" id="shipping">
@@ -59,38 +58,6 @@
             <label class="form-entry__label" for="shipping-country">Country</label>
           </div>
         </section>
-        <section class="form-section products-summary">
-          <!-- Product -->
-          <header class="form-entry form-section__header">
-            <!-- Title -->
-            <h3 class="form-section__title">your order</h3>
-          </header>
-          <table class="order-table">
-            <tr class="table-headings">
-              <td class="table-headings__td products-col" colspan="3">Product</td>
-              <td class="table-headings__td" colspan="1">Qty</td>
-              <td class="table-headings__td" colspan="2">Total</td>
-            </tr>
-            <tr>
-              <td class="products-col product-name" colspan="3">Game Console 2015</td>
-              <td colspan="1">1</td>
-              <td colspan="2">$500.00</td>
-            </tr>
-            <tr>
-              <td class="products-col product-name" colspan="3">Platformer Bros 3D</td>
-              <td colspan="1">1</td>
-              <td colspan="2">$50.00</td>
-            </tr>
-            <tr class="table__total">
-              <td colspan="4">Total</td>
-              <td colspan="2">$550.00</td>
-            </tr>
-          </table>
-        </section>
-      </section>
-      <section class="form-division hidden" id="bill-tab">
-        <!-- Next section -->
-        <!-- Billing -->
         <section class="form-section" id="billing">
           <header class="form-entry form-section__header">
             <!-- Title -->
@@ -129,6 +96,38 @@
             <label class="form-entry__label" for="billing-country">Country</label>
           </div>
         </section>
+      </section>
+      <section class="form-division hidden" id="bill-tab">
+        <section class="form-section products-summary">
+          <!-- Product -->
+          <header class="form-entry form-section__header">
+            <!-- Title -->
+            <h3 class="form-section__title">your order</h3>
+          </header>
+          <table class="order-table">
+            <tr class="table-headings">
+              <td class="table-headings__td products-col" colspan="3">Product</td>
+              <td class="table-headings__td" colspan="1">Qty</td>
+              <td class="table-headings__td" colspan="2">Total</td>
+            </tr>
+            <tr>
+              <td class="products-col product-name" colspan="3">Game Console 2015</td>
+              <td colspan="1">1</td>
+              <td colspan="2">$500.00</td>
+            </tr>
+            <tr>
+              <td class="products-col product-name" colspan="3">Platformer Bros 3D</td>
+              <td colspan="1">1</td>
+              <td colspan="2">$50.00</td>
+            </tr>
+            <tr class="table__total">
+              <td colspan="4">Total</td>
+              <td colspan="2">$550.00</td>
+            </tr>
+          </table>
+        </section>
+        <!-- Next section -->
+        <!-- Billing -->
         <!-- Payment info -->
         <section class="form-section payment-info">
           <header class="form-entry form-section__header">
@@ -160,10 +159,10 @@
             <input class="form-entry__input" id="cc-csc" type="text" autocomplete="cc-csc" placeholder="042" required>
             <label class="form-entry__label" for="cc-csc">Security Code</label>
           </div>
+          <button type="submit" class="form-submit-btn" id="form-submit">
+            purchase
+          </button>
         </section>
-      </section>
-      <section class="form-division hidden" id="confirm-tab">
-        <!-- Review tab -->
       </section>
     </form>
   </main>

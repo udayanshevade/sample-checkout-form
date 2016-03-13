@@ -21,7 +21,7 @@
 }
 
 .form-section {
-  @include display(inline-block);
+  @include align-self(center);
   text-align: center;
   padding: 1rem 3rem 2rem;
   max-width: 380px;
@@ -109,6 +109,9 @@
   .form-division {
     @include flex-direction(row);
   }
+  .form-section {
+    @include align-self(auto);
+  }
 }
 
 /* Order Table */
@@ -132,5 +135,26 @@ td {
 .table__total {
   td {
     text-align: right;
+  }
+}
+
+.form-submit-btn {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.75rem;
+  outline: 0;
+  border: 0;
+  border-radius: 2px;
+  background-color: green;
+  opacity: 0.85;
+  font-variant: small-caps;
+  box-shadow: 1px 2px 6px rgba(0,0,0,0.2);
+  float: right;
+
+  &:hover {
+    opacity: 1;
+    @include transition(opacity 0.1s ease-in);
   }
 }

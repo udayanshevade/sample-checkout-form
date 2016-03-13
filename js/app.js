@@ -67,6 +67,17 @@ app = (function(win) {
       }
     };
 
+    that.verifyForm = function() {
+      var input,
+      inputs = doc.getElementsByTagName('input');
+      for (var i = 0; i < inputs.length; i++) {
+        input = inputs[i];
+        if (input.required && !input.value) {
+          input.setCustomValidity('Please complete this field.');
+        }
+      }
+    };
+
     that.init();
 
   };
@@ -75,12 +86,13 @@ app = (function(win) {
 
     var that = this;
 
-    this.init = function() {
+    that.init = function() {
       that.initNav();
       that.initTabs();
       that.initAddressCheckbox();
       that.watchAddress('shipping');
       that.watchAddress('billing');
+      that.initFormSubmit();
     };
 
     that.initNav = function() {
@@ -155,6 +167,11 @@ app = (function(win) {
         inp = inputs[i];
         inp.onchange = controller.updateInput;
       }
+    };
+
+    that.initFormSubmit = function() {
+      var form = doc.getElementById('main-form');
+      form.submit = controller.verifyForm;
     };
 
     this.init();
